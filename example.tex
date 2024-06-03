@@ -31,30 +31,30 @@
 
 
 \begin{document}
-  
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PAPER INFORMATION.                                                           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{Preprint Template Title}
-  
+
 \author[$\ast$]{First Author}
 \affil[$\ast$]{Address of first author.\authorcr
   \email{f.author@email.com}, \orcid{0000-0000-0000-0000}}
-  
+
 \author[$\dagger$]{Second Author}
 \affil[$\dagger$]{Address of second author.\authorcr
   \email{s.author@email.com}, \orcid{0000-0000-0000-0000}}
-  
+
 \shorttitle{Example short title}
 \shortauthor{F. Author, S. Author}
 \shortdate{}
 \shortinstitute{}
-  
+
 \keywords{keyword1, keyword2, keyword3}
 
 \msc{MSC1, MSC2, MSC3}
-  
+
 \abstract{%
   This preprint template was created by Steffen W. R. Werner for consistent
   writing of research papers.
@@ -72,7 +72,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PAPER CONTENT.                                                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
+
 \section{Introduction}%
 \label{sec:intro}
 
@@ -85,7 +85,7 @@ for writing your own paper in the preprint style.
 
 In \Cref{sec:pkgcmd}, the most important points, hidden in the class file, are
 described, where \Cref{subsec:options} contains main options that can be used
-for the template, \Cref{subsec:linkpkg} the link packages used by the 
+for the template, \Cref{subsec:linkpkg} the link packages used by the
 class file, \Cref{subsec:linenumbers} infos on optional line numbering and
 \Cref{subsec:meta} the (default) commands for meta information.
 \Cref{sec:export} is a small summary of the necessary files for using the
@@ -114,7 +114,7 @@ be given to the document class to change its behavior:
   \item[letterpaper] Activates the default American US letter paper size.
   \item[onecolumn] Activates the single column style. \texttt{onecolumn}
     as option is equivalent to not using \texttt{twocolumn}.
-  \item[twocolumn] Activates the double column style. If not set the 
+  \item[twocolumn] Activates the double column style. If not set the
     \texttt{onecolumn} style is the default.
   \item[hidelinks] Turns off the coloring of any link in the paper, i.e., all
     links are printed in default text color.
@@ -124,7 +124,7 @@ be given to the document class to change its behavior:
   \item[linenumbers] Activates line numbering in text.
 \end{description}
 
-As example, to use the preprint in double column style on A4 paper and with 
+As example, to use the preprint in double column style on A4 paper and with
 colored links you have to call:
 \begin{verbatim}
   \documentclass[a4paper,twocolumn]{preprint}
@@ -147,11 +147,11 @@ Since the coloring of links would also appear in print versions, there is the
 option for turning off the coloring; see \Cref{subsec:options}.
 
 For internal referencing, the commands from \texttt{cleveref} are recommended.
-The package is preloaded with the \texttt{nameinlink} and \texttt{capitalize} 
+The package is preloaded with the \texttt{nameinlink} and \texttt{capitalize}
 options such that names of environments are also part of the link and start with
 uppercase letters.
-Use \verb|\Cref{...}| for any named environment as sections, figures, 
-algorithms, tables or equations at the beginning of sentences and 
+Use \verb|\Cref{...}| for any named environment as sections, figures,
+algorithms, tables or equations at the beginning of sentences and
 \verb|\cref{...}| for default equation referencing in the text.
 By this, the environments are automatically put in by their right naming and
 number, e.g., if we want to reference to two sections we use
@@ -232,13 +232,13 @@ be used according to this example paper.
   \item[\normalfont\textbackslash\texttt{shortdate}\{\ldots\}] Controls the
     content of the dates field in the lower right corner. If empty, the
     compilation date is used in ISO format (yyyy-mm-dd). Hiding the date
-    is also possible by, e.g., using a non-breakable space 
+    is also possible by, e.g., using a non-breakable space
     \verb|\shortdate{|$\sim$\verb|}|.
   \item[\normalfont\textbackslash\texttt{shortinstitute}\{\ldots\}] Allows
     to set an optional institution in brackets behind ``Preprint'' in the lower
     left corner.
   \item[\normalfont\textbackslash\texttt{keywords}\{\ldots\}] Comma separated
-    list of keywords. If not set, the bold face \textbf{Keywords:} below the 
+    list of keywords. If not set, the bold face \textbf{Keywords:} below the
     abstract will not be shown.
   \item[\normalfont\textbackslash\texttt{msc}\{\ldots\}] Comma separated
     list of math subject classification identifiers. If not set, the bold face
@@ -249,8 +249,8 @@ be used according to this example paper.
       \url{https://zbmath.org/classification/}
     \end{center}
     for the list of MSC identifiers.
-  \item[\normalfont\textbackslash\texttt{abstract}\{\ldots\}] Shows the abstract 
-    text. 
+  \item[\normalfont\textbackslash\texttt{abstract}\{\ldots\}] Shows the abstract
+    text.
     Note that this is here only a command and not the classical abstract
     environment.
 \end{description}
@@ -322,6 +322,20 @@ use the uppercase \verb|\Cref| as for other environments, e.g.,
 \begin{verbatim}
   \Cref{eqn:eqn1,eqn,eqn:2,eqn:eqn3}.
 \end{verbatim}
+The template can now also accommodate sub-numbering in equations, for example,
+for
+\begin{subequations} \label{eqn:parent}
+\begin{align}
+  \label{eqn:sub1}
+  x = 1, \\
+  \label{eqn:sub2}
+  y = 2, \\
+  \label{eqn:sub3}
+  z = 3.
+\end{align}
+\end{subequations}
+And for these equations we get~\cref{eqn:parent}
+or~\cref{eqn:sub1,eqn:sub2,eqn:sub3}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -367,13 +381,13 @@ to give proper links in PDF viewers.
   \centering
   \resizebox{8cm}{!}{
   \includegraphics{example-image-a}}
-   
+
   \caption{Example figure for template.}
   \label{fig:example}
 \end{figure}
 
 No special mentioning of fancy graphics or use of TikZ here.
-Just a simple example how an included graphic should look like with the 
+Just a simple example how an included graphic should look like with the
 corresponding \verb|cleveref| reference \Cref{fig:example}.
 
 
@@ -383,7 +397,7 @@ corresponding \verb|cleveref| reference \Cref{fig:example}.
 \label{subsec:tables}
 
 The same as for figures now with an example table \Cref{tab:example}.
-For demonstration, also an intermediate breaking horizontal line in the content 
+For demonstration, also an intermediate breaking horizontal line in the content
 is added.
 Note that table captions should go above the actual table.
 
@@ -391,7 +405,7 @@ Note that table captions should go above the actual table.
   \centering
   \caption{Example table}
   \label{tab:example}
-  
+
   \begin{tabular}{lcr}
     \hline\noalign{\medskip}
     & header1 & header2\\
@@ -423,7 +437,7 @@ An example for such a block can be seen below.
   \fbox{%
   \begin{minipage}{.92\linewidth}
     \textbf{Code availability}\newline
-    The source codes and scripts used to compute the results presented in this 
+    The source codes and scripts used to compute the results presented in this
     paper can be obtained from
     \begin{center}
       \href{https://doi.org/?????/????????}%
@@ -461,5 +475,5 @@ Note that this section is just created via
 \addcontentsline{toc}{section}{References}
 \bibliographystyle{plainurl}
 \bibliography{exampleref}
-  
+
 \end{document}

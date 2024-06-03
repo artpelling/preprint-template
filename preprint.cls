@@ -1,10 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TEMPLATE CLASS FILE.                                                         %
-% Written by Steffen W. R. Werner (version 4.1), 04-09-2023                    %
+% Written by Steffen W. R. Werner (version 4.2), 03-06-2024                    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{preprint}[2023/09/04 S. W. R. Werner Preprint Class (v4.1)]
+\ProvidesClass{preprint}[2024/06/03 S. W. R. Werner Preprint Class (v4.2)]
 
 \newif\iftwocolumn\twocolumnfalse
 \DeclareOption{twocolumn}{\twocolumntrue}
@@ -72,7 +72,7 @@
 \let\@shortdate\empty%
 \newcommand{\shortdate}[1]{\gdef\@shortdate{#1}}
 
-  
+
 % Abstract parts.
 \let\@keywords\empty%
 \newcommand{\keywords}[1]{\gdef\@keywords{#1}}
@@ -100,7 +100,7 @@
     pdfcreator  = {pdfLaTeX with Hyperref},%
     pdfproducer = {LaTeX, hyperref}
   }
-  
+
   % Headers and footers.
   \ifx\@shortauthor\empty%
     \ifx\@shorttitle\empty%
@@ -114,25 +114,25 @@
       \ihead{\@shortauthor:~\@shorttitle}
     \fi
   \fi
-  
+
   \renewcommand*\pagemark{}
   \ifx\@shortinstitute\empty%
     \ifoot*{\small Preprint.}
   \else
     \ifoot*{\small Preprint (\@shortinstitute).}
   \fi
-  
+
   \KOMAoptions{headsepline = true, footsepline = true, plainfootsepline = true}
   \ModifyLayer[addvoffset=-.6ex]{scrheadings.foot.above.line}
   \ModifyLayer[addvoffset=-.6ex]{plain.scrheadings.foot.above.line}
-  
+
   % Footline date.
   \ifx\@shortdate\empty%
     \ofoot*{\small \ISOToday}
   \else
     \ofoot*{\small \@shortdate}
   \fi
-  
+
   % Abstract and plotting.
   \if@twocolumn%
     \makeatletter
@@ -155,7 +155,7 @@
             \noindent\textbf{Keywords:}
             \@keywords%
           \fi
-          
+
           \ifx\@msc\empty%
           \else
             \vspace{1em}
@@ -174,7 +174,7 @@
               }%
             }%
           \fi
-              
+
           \end{linenumbers}
         \end{oldabstract}
         \vspace{2\baselineskip}
@@ -186,11 +186,11 @@
   \else%
     \oldmaketitle%
     \vspace{-2.5\baselineskip}
-  
+
     \begin{oldabstract}
       \noindent\textbf{Abstract:}
       \@abstract
-         
+
       \ifx\@keywords\empty
         \ifx\@msc\empty
         \else
@@ -201,14 +201,14 @@
         \noindent\textbf{Keywords:}
         \@keywords
       \fi
-          
+
       \ifx\@msc\empty
       \else
         \vspace{1em}
         \noindent\textbf{Mathematics subject classification:}
         \@msc
       \fi
-      
+
       \ifx\@novelty\empty%
       \else
         \setlength{\noveltyboxwidth}{\linewidth}%
@@ -257,7 +257,7 @@
   \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
   \renewenvironment{#1}%
   {\linenomath\csname old#1\endcsname}%
-  {\csname oldend#1\endcsname\endlinenomath}}% 
+  {\csname oldend#1\endcsname\endlinenomath}}%
 \iflinenumbers
   \AtBeginDocument{%
     \patchMATHlinenumbers{equation}%
@@ -326,6 +326,22 @@
     { and \textup{#2(#1)#3}}
     {, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
   \Crefrangemultiformat{equation}{\textup{#3Equations~(#1)#4--#5(#2)#6}}%
+    { and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}
+    {, and \textup{#3(#1)#4--#5(#2)#6}}
+
+  \crefformat{subequation}{\textup{#2(#1)#3}}
+  \crefrangeformat{subequation}{\textup{#3(#1)#4--#5(#2)#6}}
+  \crefmultiformat{subequation}{\textup{#2(#1)#3}}{ and \textup{#2(#1)#3}}
+    {, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+  \crefrangemultiformat{subequation}{\textup{#3(#1)#4--#5(#2)#6}}%
+    { and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}
+    {, and \textup{#3(#1)#4--#5(#2)#6}}
+  \Crefformat{subequation}{\textup{#2Equation~(#1)#3}}
+  \Crefrangeformat{subequation}{\textup{#3Equations~(#1)#4--#5(#2)#6}}
+  \Crefmultiformat{subequation}{\textup{#2Equations~(#1)#3}}%
+    { and \textup{#2(#1)#3}}
+    {, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+  \Crefrangemultiformat{subequation}{\textup{#3Equations~(#1)#4--#5(#2)#6}}%
     { and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}
     {, and \textup{#3(#1)#4--#5(#2)#6}}
 }
