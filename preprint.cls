@@ -21,6 +21,9 @@
 \newif\iflinenumbers\linenumbersfalse
 \DeclareOption{linenumbers}{\linenumberstrue}
 
+\newif\ifshowframe\showframefalse
+\DeclareOption{showframe}{\showframetrue}
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
 \ProcessOptions\relax
 \iftwocolumn
@@ -235,7 +238,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Geometry of page.
-\RequirePackage{geometry}
+\ifshowframe
+    \RequirePackage[showframe=true]{geometry}
+\else
+    \RequirePackage{geometry}
+\fi
+
 \if@twocolumn
   \geometry{left = 1.5cm, right = 1.5cm, top = 3.0cm, bottom = 3.0cm}
   \setlength{\columnsep}{1.25\baselineskip}
